@@ -1,0 +1,63 @@
+
+
+<div class="container text-center">
+<br>
+  <header class="container text-center">
+    <div class="row text-center">
+      <div class="col-md-12 text-center">
+        <h1 class="text-center">Eat da Burger!</h1>
+        <img class="text-center" src="/assets/img/sadburger.gif">
+      </div>
+    </div>
+  </header>
+
+
+  <section class="container text-center">
+    <div class="row text-center">
+      <div class="col-md-12 text-center">
+        <h3 class="">Add a burger</h3>
+        <form class="create-form text-center">
+
+          <div class="form-group text-center">
+            <label class="text-center" for="burger_name">Burger Name:</label>
+            <input type="text" id="burger_name" name="burger_name" class="text-center">
+          </div>
+
+          <button type="submit" class="text-center">Add Burger</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+<br>
+
+  <section class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Burgers that are ready to eat...</h3>
+
+        <ul>
+          {{#each burgersFromController}} 
+            {{#unless devoured}} 
+              {{> burgers/burger-block devour=true}} 
+            {{/unless}} 
+          {{/each}}
+        </ul>
+
+        <h3>Burgers that are devoured!</h3>
+
+        <ul>
+          {{#each burgersFromController}} 
+            {{#if devoured}} 
+              {{> burgers/burger-block devour=false}} 
+            {{/if}} 
+          {{/each}}
+        </ul>
+
+
+      </div>
+    </div>
+  </section>
+
+</div>
